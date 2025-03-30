@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Te hónapod te warframed</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background-image: url(warframe\ hatter.jpg); background-size: cover; background-position: center; background-attachment: fixed; background-repeat: no-repeat; color: black;}
+        .buttons { margin: 20px; }
+        button { margin: 5px; padding: 10px; cursor: pointer; }
+        #image { width: 550px; height: 320px; object-fit: cover; margin-top: 20px; margin-bottom: 20px; }
+        #description { font-size: 18px; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Válassz egy hónapot!</h1>
+    <div class="buttons">
+        <script>
+            const months = {
+                "Január": ["wisp.jpg", "A te warframed Wisp."],
+                "Február": ["saryn.jpg", "A te warframed Saryn."],
+                "Március": ["ember.jpg", "A te warframed Ember."],
+                "Április": ["mag.jpg", "A te warframed Mag."],
+                "Május": ["chroma.jpg", "A te warframed Chroma."],
+                "Június": ["equinox.jpg", "A te warframed Equinox."],
+                "Július": ["nekros.jpg", "A te warframed Nekros."],
+                "Augusztus": ["gauss.jpg", "A te warframed Gauss."],
+                "Szeptember": ["oberon.jpg", "A te warframed Oberon."],
+                "Október": ["volt.jpg", "A te warframed Volt."],
+                "November": ["inaros.jpg", "A te warframed Inaros."],
+                "December": ["grendel.jpg", "A te warframed Grendel."]
+            };
+            
+            function createButtons() {
+                for (let month in months) {
+                    let btn = document.createElement("button");
+                    btn.innerText = month;
+                    btn.onclick = function() { showInfo(month); };
+                    document.querySelector(".buttons").appendChild(btn);
+                }
+            }
+            
+            function showInfo(month) {
+                let [imgSrc, text] = months[month];
+                document.getElementById("image").src = imgSrc;
+                document.getElementById("description").innerText = text;
+            }
+            
+            window.onload = createButtons;
+        </script>
+    </div>
+    <img id="image" src="lotus.jpg" alt="" />
+    <div id="description">Válassz egy hónapot!</div>
+</body>
+</html>
